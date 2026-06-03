@@ -60,7 +60,22 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="min-h-screen bg-gray-50 dark:bg-gray-900">{children}</body>
+      <body className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+        {children}
+        <footer className="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                Research prototype by <a href="https://github.com/eylulsenakumral" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-600">@eylulsenakumral</a>
+              </div>
+              <div className="flex gap-6 text-sm">
+                <a href="/faq" className="text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400">FAQ</a>
+                <a href="https://github.com/eylulsenakumral/bot-analytics-dashboard" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
