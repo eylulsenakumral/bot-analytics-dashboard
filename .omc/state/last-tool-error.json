@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"tree -L 2 -I 'node_modules' .\",\"description\":\"Show project structure\"}",
+  "error": "Exit code 127\n/bin/bash: line 2: tree: command not found",
+  "timestamp": "2026-06-03T17:25:25.778Z",
+  "retry_count": 1
+}
