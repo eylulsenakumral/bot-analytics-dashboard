@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"sleep 120 && echo \\\"Waited 2 more minutes\\\"\",\"description\":\"Wait 2 more minutes for deployment\"}",
+  "tool_input_preview": "{\"command\":\"sleep 120 && echo \\\"Deployment wait complete\\\"\",\"description\":\"Wait 2 minutes for GitHub Actions\"}",
   "error": "Exit code 143",
-  "timestamp": "2026-06-03T19:30:54.297Z",
+  "timestamp": "2026-06-03T19:34:47.025Z",
   "retry_count": 1
 }

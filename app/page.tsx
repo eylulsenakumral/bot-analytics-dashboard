@@ -5,13 +5,9 @@ import { getMockDashboardData, formatTimestamp, getActivityIcon, getActivityColo
 import type { DashboardData, MetricCard, ChartDataPoint, ActivityEvent } from '../types';
 
 export default function Dashboard() {
-  const [data, setData] = useState<DashboardData | null>(null);
-  const [mounted, setMounted] = useState(false);
+  const [data, setData] = useState<DashboardData>(() => getMockDashboardData());
 
   useEffect(() => {
-    setData(getMockDashboardData());
-    setMounted(true);
-
     // Simulate real-time updates
     const interval = setInterval(() => {
       setData(getMockDashboardData());
@@ -20,7 +16,7 @@ export default function Dashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!data || !mounted) {
+  if (!data) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
@@ -261,14 +257,6 @@ export default function Dashboard() {
 
 // Metric Card Component
 function MetricCard({ metric }: { metric: MetricCard }) {
-  const [updated, setUpdated] = useState(false);
-
-  useEffect(() => {
-    setUpdated(true);
-    const timer = setTimeout(() => setUpdated(false), 500);
-    return () => clearTimeout(timer);
-  }, [metric.value]);
-
   const trendColor = metric.trend === 'up'
     ? 'text-green-600 dark:text-green-400'
     : metric.trend === 'down'
@@ -287,7 +275,7 @@ function MetricCard({ metric }: { metric: MetricCard }) {
           {trendIcon} {metric.change}
         </span>
       </div>
-      <p className={`metric-value mt-2 text-3xl font-bold text-gray-900 dark:text-white ${updated ? 'updated' : ''}`}>
+      <p className="metric-value mt-2 text-3xl font-bold text-gray-900 dark:text-white">
         {metric.value}
       </p>
     </div>
